@@ -8,10 +8,13 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	echo "OK";
+	$sql = new DB\Sql();
+	$results = $sql->select("Select * FROM tb_users");
+
+	echo json_encode($results);
 
 });
 
 $app->run();
 
- ?>
+?>
