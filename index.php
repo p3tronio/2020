@@ -41,6 +41,53 @@ $app->get('/logout', function (){
 
 });
 
+$app->get('/users', function (){
+
+	User::verifyLogin();
+	$page = new Page();
+	$page->setTpl('users');
+
+});
+
+$app->get('/users/create', function (){
+
+	User::verifyLogin();
+	$page = new Page();
+	$page->setTpl('users-create');
+
+});
+
+$app->post('users/create', function (){
+
+	User::verifyLogin();
+
+
+});
+
+$app->get('/users/:iduser', function ($iduser){
+
+	User::verifyLogin();
+	$page = new Page();
+	$page->setTpl('users-update');
+
+});
+
+$app->post('/users/:iduser', function ($iduser){
+
+	User::verifyLogin();
+
+});
+
+$app->delete('/users/:iduser', function ($iduser){
+
+	User::verifyLogin();
+
+});
+
+
+
+
+
 $app->run();
 
 ?>
